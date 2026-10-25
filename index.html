@@ -270,6 +270,12 @@ h2{font-weight:500}
 .js .pre.in{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .9s var(--ease)}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before{animation:none!important;transition:none!important}.js .pre{opacity:1;transform:none}}
 </style>
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset identify alias set_config get_property".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init("phc_w6WgjhHY98tpkN7Zh9XVgrRXi8QgxXFedxyqyBpJRxJf",{api_host:"https://eu.i.posthog.com",persistence:"memory",disable_session_recording:true,capture_pageview:true,capture_pageleave:true,autocapture:true,enable_heatmaps:true});
+// нажатия «Заказать в боте»: какая кнопка и какой товар
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="t.me/laza_sales_bot"]');if(!a)return;var c=a.closest(".card"),sec=a.closest("section,header,footer");posthog.capture("order_click",{place:c?"catalog":(sec&&(sec.id||sec.tagName.toLowerCase()))||"page",product:c&&c.querySelector("h3")?c.querySelector("h3").textContent.trim():null,pack:c&&c.querySelector('.size[aria-pressed="true"]')?c.querySelector('.size[aria-pressed="true"]').textContent.trim():null,lang:document.documentElement.lang});},true);
+</script>
 </head>
 <body>
 
@@ -525,7 +531,7 @@ h2{font-weight:500}
     try{localStorage.setItem("laza-lang",l)}catch(e){}
     renderFilter(); renderGrid(); calc();
   }
-  document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
+  document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{setLang(b.dataset.lang); try{posthog.capture("lang_switch",{lang:b.dataset.lang})}catch(e){}});
   document.getElementById("kg").addEventListener("input",calc);
   let start="ru";
   try{ if(localStorage.getItem("laza-lang")==="uz") start="uz"; }catch(e){}
