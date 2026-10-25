@@ -232,6 +232,37 @@ footer{padding-block:40px 44px;color:var(--muted);font-size:15px;display:flex;fl
 .step:first-child{background:var(--surface);color:var(--ink)}
 .step:first-child p{color:var(--ink)}
 .about li::before{background:var(--muted)}
+
+/* Спокойный вариант: без логотипов и плашек на фото, меньше картинок; красный только на главных кнопках; вместо чёрного — мягкий графит и белые элементы */
+:root:root{--soft:#4A4643;--line2:#D6D4CF}
+@media (prefers-color-scheme: dark){:root:root:not([data-theme="light"]){--soft:#D9D6D0;--line2:#3A3936}}
+:root:root[data-theme="dark"]{--soft:#D9D6D0;--line2:#3A3936}
+h1,h2,.hero h1{color:var(--soft)}
+.hero h1{font-weight:500}
+h2{font-weight:500}
+.hero h1 em{color:inherit}
+.card .ph img{aspect-ratio:5/4;object-fit:cover;object-position:50% 74%}
+.card .ph{background:var(--surface)}
+.card h3{color:var(--soft)}
+.size{background:transparent;box-shadow:inset 0 0 0 1px var(--line2);color:var(--soft)}
+.size[aria-pressed="true"],.size[data-pack="1kg"][aria-pressed="true"]{background:var(--bg);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--soft)}
+.card .btn{background:transparent;color:var(--red-text);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--red-text) 55%,transparent)}
+.card .btn:hover{background:var(--red);color:var(--red-ink);box-shadow:none}
+.chip{background:transparent;box-shadow:inset 0 0 0 1px var(--line2);color:var(--soft)}
+.chip i{display:none}
+.chip[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--soft)}
+.lang button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 0 0 1px var(--line2)}
+.price b,.fact b,.tier-row b{color:var(--soft)}
+#tiers .tier-row.best b{color:var(--red-text)}
+.hero-row{grid-template-columns:6fr 5fr}
+.packs{grid-template-columns:1fr;grid-template-rows:auto}
+.packs figure:not(:first-child){display:none}
+.packs figure:nth-child(1){grid-row:auto}
+.packs figure img{aspect-ratio:5/4;object-position:50% 74%;height:auto}
+.about{grid-template-columns:1fr}
+.about .pics{display:none}
+.about ul{grid-template-columns:1fr 1fr;column-gap:40px}
+@media (max-width:760px){.about ul{grid-template-columns:1fr}}
 /* Движение: появление частей секций, только transform и opacity */
 .rise{animation:rise .9s var(--ease) both}
 @keyframes rise{from{transform:translateY(24px)}to{transform:none}}
