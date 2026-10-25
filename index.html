@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LAZA оптом</title>
+<meta name="description" content="Сублимированное мороженое Laza (11 вкусов) и хрустящий сулугуни оптом от производителя из Ташкентской области. Каталог, оптовые цены, заказ в Telegram-боте @laza_sales_bot.">
+<meta property="og:title" content="LAZA оптом — мороженое и сулугуни">
+<meta property="og:description" content="11 вкусов сублимированного мороженого и хрустящий сулугуни. Оптовые цены, заказ в Telegram.">
+<meta property="og:image" content="https://laza-uz.github.io/img/fruit_100g.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://laza-uz.github.io/">
+<link rel="icon" href="img/logo.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Onest:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: студийный светло-серый фон как на карточках товара. Поверхности различаются тоном, без линий. Заголовок первого экрана крупно на всю ширину, под ним текст слева и большая пачка справа. Фасовки — цветные плашки как на фото */
+:root{
+  --bg:#EDEDEA; --surface:#F8F8F6; --sunk:#E3E3DF; --ink:#1C1B1A; --muted:#55534E;
+  --red:#C8102E; --red-ink:#FFFFFF; --red-text:#C8102E;
+  --p20:#5FA83A; --p30:#4A8FD6; --p100:#E8738F; --p50:#F2BE1E; --p1kg:#D7262E; --chip-ink:#1C1B1A;
+  --font-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --font-body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --r:16px; --ease:cubic-bezier(.16,1,.3,1);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#171716; --surface:#22211F; --sunk:#2B2A27; --ink:#F1F0EC; --muted:#B4B2AB;
+  --red:#C41E36; --red-ink:#FFFFFF; --red-text:#FF6B7D; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#171716; --surface:#22211F; --sunk:#2B2A27; --ink:#F1F0EC; --muted:#B4B2AB;
+  --red:#C41E36; --red-ink:#FFFFFF; --red-text:#FF6B7D; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scrollbar-color:var(--sunk) var(--bg);caret-color:var(--red-text)}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit;text-underline-offset:3px}
+::selection{background:var(--red);color:var(--red-ink)}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(28px,3.6vw,44px);font-weight:700;line-height:1.08}
+h3{font-size:18px;font-weight:700;line-height:1.2}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid var(--p30);outline-offset:2px;border-radius:6px}
+
+/* Шапка: простая полоса, отделена тоном */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface)}
+.bar{display:flex;align-items:center;gap:20px;padding-block:12px}
+.logo{display:block;height:26px;width:auto}
+nav{display:flex;gap:22px;margin-left:16px}
+nav a{text-decoration:none;font-weight:500;color:var(--muted);font-size:15px;transition:color .2s}
+nav a:hover{color:var(--ink)}
+.bar-end{margin-left:auto;display:flex;align-items:center;gap:10px}
+.lang{display:flex;background:var(--sunk);border-radius:999px;padding:3px}
+.lang button{border:0;background:transparent;color:var(--muted);font:600 14px var(--font-body);padding:5px 11px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;background:var(--red);color:var(--red-ink);font:600 15px var(--font-body);padding:13px 22px;text-decoration:none;cursor:pointer;white-space:nowrap;transition:transform .25s var(--ease),filter .2s}
+.btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.ghost{background:var(--sunk);color:var(--ink)}
+.btn.sm{padding:9px 16px;font-size:14px}
+@media (max-width:860px){nav{display:none}}
+@media (max-width:480px){.bar .btn.sm span{display:none}.bar .btn.sm{padding:9px 11px}}
+
+/* Первый экран */
+.hero{padding-block:48px 24px}
+.hero h1{font-size:clamp(38px,7.4vw,108px);font-weight:800;line-height:.98;letter-spacing:-.035em;max-width:11.5em}
+.hero-row{margin-top:clamp(24px,3vw,40px);display:grid;grid-template-columns:5fr 7fr;grid-template-areas:"text packs" "facts packs";grid-template-rows:auto 1fr;gap:clamp(20px,3vw,32px) clamp(20px,3vw,40px)}
+.hero-text{grid-area:text}.hero-row .packs{grid-area:packs}.hero-row .facts{grid-area:facts;align-self:end}
+.hero .lead{font-size:clamp(17px,1.4vw,18px);max-width:30em}
+.hero .actions{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
+.packs{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:12px}
+.packs figure{margin:0;background:var(--surface);border-radius:var(--r);overflow:hidden}
+.packs figure img{display:block;width:100%;height:100%;aspect-ratio:1;object-fit:cover}
+.packs figure:nth-child(1){grid-row:1 / span 2}
+.packs figure:nth-child(1) img{animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{from{transform:scale(1)}to{transform:scale(1.05)}}
+@media (max-width:900px){.hero-row{grid-template-columns:1fr;grid-template-areas:"text" "packs" "facts";grid-template-rows:auto}.hero{padding-block:28px 16px}}
+
+/* Факты: плитки одного тона */
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fact{background:var(--surface);border-radius:var(--r);padding:16px 18px;min-width:0}
+.fact b{display:block;font-family:var(--font-display);font-size:clamp(20px,2vw,24px);font-weight:700;line-height:1.15}
+.fact span{display:block;margin-top:6px;font-size:16px}
+@media (max-width:760px){.fact{padding:14px}}
+
+section{padding-block:clamp(72px,9vw,128px) 0}
+.head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 32px;margin-bottom:28px}
+
+/* Фильтр фасовок */
+.filter{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:0;background:var(--surface);color:var(--ink);font:600 14px var(--font-body);padding:9px 15px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:transform .2s var(--ease),background .2s}
+.chip:hover{transform:translateY(-1px)}
+.chip:active{transform:scale(.96)}
+.chip i{width:10px;height:10px;border-radius:50%;background:var(--c,var(--ink));display:inline-block}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* Каталог */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.card{background:var(--surface);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .35s var(--ease)}
+.card:hover{transform:translateY(-4px)}
+.card .ph{background:var(--bg);overflow:hidden}
+.card .ph img{display:block;width:100%;aspect-ratio:1;object-fit:cover;transition:transform .6s var(--ease)}
+.card:hover .ph img{transform:scale(1.03)}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card .desc{color:var(--muted);font-size:16px;margin-top:4px}
+.sizes{display:flex;flex-wrap:wrap;gap:6px}
+.size{border:0;background:var(--sunk);color:var(--ink);font:600 14px var(--font-body);padding:5px 11px;border-radius:999px;cursor:pointer;transition:transform .2s var(--ease)}
+.size:active{transform:scale(.94)}
+.size[aria-pressed="true"]{background:var(--c);color:var(--chip-ink)}
+.size[data-pack="1kg"][aria-pressed="true"]{color:#FFFFFF}
+.price{margin-top:auto;display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.price b{font-family:var(--font-display);font-size:24px;font-weight:700}
+.price small{color:var(--muted);font-size:14px}
+.card .btn{width:100%}
+.note{margin-top:20px;color:var(--muted);font-size:16px;max-width:60em}
+
+/* Ступени 1 кг */
+.tiers{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(24px,4vw,56px);align-items:start}
+.tiers .lead2{margin-top:16px;max-width:32em}
+.tier-table{display:grid;gap:8px}
+.tier-row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:18px 22px;background:var(--surface);border-radius:var(--r);align-items:baseline}
+.tier-row .w{font-weight:600}
+.tier-row .w small{display:block;font-weight:400;color:var(--muted);font-size:15px}
+.tier-row b{font-family:var(--font-display);font-size:clamp(22px,2vw,24px)}
+.tier-row.best{background:var(--ink);color:var(--bg)}
+.tier-row.best .w small{color:color-mix(in srgb,var(--bg) 78%,transparent)}
+.calc{background:var(--sunk);border-radius:var(--r);padding:22px;display:grid;gap:14px;margin-top:8px}
+.calc label{font-weight:600}
+.calc .row{display:flex;align-items:center;gap:12px}
+.calc input[type=range]{flex:1;accent-color:var(--red)}
+.calc output{font-family:var(--font-display);font-weight:700;min-width:5.5em;text-align:right}
+.calc .res{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.calc .res div{background:var(--surface);border-radius:12px;padding:12px 14px;min-width:0}
+.calc .res span{display:block;color:var(--muted);font-size:14px}
+.calc .res b{font-family:var(--font-display);font-size:24px}
+.calc .hint{font-size:16px;min-height:1.5em}
+@media (max-width:860px){.tiers{grid-template-columns:1fr}}
+
+/* Как заказать */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0;padding:0;list-style:none}
+.step{background:var(--surface);border-radius:var(--r);padding:22px;min-width:0}
+.step b{display:block;font-family:var(--font-display);font-size:17px;line-height:1.25;margin-bottom:8px}
+.step p{font-size:16px}
+.step:first-child{background:var(--red);color:var(--red-ink)}
+.step:first-child p{color:color-mix(in srgb,var(--red-ink) 86%,transparent)}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* О продукте */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.about ul{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.about li{padding-left:24px;position:relative}
+.about li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:3px;background:var(--red)}
+.about .pics{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about .pics img{border-radius:var(--r);display:block;width:100%;aspect-ratio:1;object-fit:cover}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+
+/* Контакты */
+.contact{background:var(--ink);color:var(--bg);border-radius:24px;padding:clamp(28px,4vw,52px);display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center}
+.contact h2{color:var(--bg)}
+.contact p{color:color-mix(in srgb,var(--bg) 80%,transparent);margin-top:14px}
+.contact dl{margin:0;display:grid;gap:16px}
+.contact dt{font-size:15px;color:color-mix(in srgb,var(--bg) 78%,transparent)}
+.contact dd{margin:2px 0 0;font-weight:600;font-size:18px;user-select:all;overflow-wrap:anywhere}
+.contact .btn{margin-top:24px}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+
+footer{padding-block:40px 44px;color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+/* Цвет этикетки в карточке */
+.card .ph{background:var(--bg);padding:0}
+.card .ph img{border-radius:0}
+.card h3{min-height:2.4em}
+.card .desc{font-size:15px;margin-top:-4px}
+.price{margin-top:0}
+.card .btn{margin-top:auto}
+/* Подпись с ценой на фото первого экрана */
+.packs figure{position:relative}
+.packs figcaption{position:absolute;left:14px;right:14px;bottom:14px;background:var(--surface);color:var(--ink);border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-weight:600;font-size:16px}
+.packs figcaption b{font-family:var(--font-display);font-size:18px;white-space:nowrap}
+/* Красные полосы на всю ширину */
+#tiers{background:var(--red);color:var(--red-ink);margin-top:clamp(72px,9vw,128px);padding-block:clamp(56px,7vw,96px)}
+#tiers h2{color:var(--red-ink)}
+#tiers .lead2{color:color-mix(in srgb,var(--red-ink) 92%,transparent)}
+#tiers .tier-row{background:color-mix(in srgb,#000 22%,var(--red));color:var(--red-ink)}
+#tiers .tier-row .w small{color:color-mix(in srgb,var(--red-ink) 85%,transparent)}
+#tiers .tier-row.best{background:#FFFFFF;color:#1C1B1A}
+#tiers .tier-row.best b{color:#C8102E}
+#tiers .tier-row.best .w small{color:#55534E}
+#tiers .calc{background:#FFFFFF;color:#1C1B1A}
+#tiers .calc .res div{background:#EDEDEA}
+#tiers .calc .res span{color:#55534E}
+#tiers .calc output{color:#1C1B1A}
+#contacts{background:var(--red);color:var(--red-ink);margin-top:clamp(72px,9vw,128px);padding-block:clamp(48px,6vw,80px)}
+#contacts .contact{background:transparent;color:var(--red-ink);padding:0;border-radius:0}
+#contacts .contact h2{color:var(--red-ink)}
+#contacts .contact p,#contacts .contact dt{color:color-mix(in srgb,var(--red-ink) 88%,transparent)}
+#contacts .btn{background:#FFFFFF;color:#B5121B}
+/* Каталог на телефоне — два столбца */
+@media (max-width:560px){.grid{grid-template-columns:1fr 1fr;gap:10px}
+.card .body{padding:12px 12px 14px;gap:10px}.card h3{font-size:15px;min-height:0}.card .desc{font-size:14px}
+.size{padding:4px 9px;font-size:13px}.price b{font-size:18px}.price small{font-size:13px}.card .btn{font-size:14px;padding:10px 8px;white-space:normal;text-align:center}
+.packs figcaption{left:8px;right:8px;bottom:8px;padding:8px 10px;font-size:13px;flex-wrap:wrap;gap:2px 8px}.packs figcaption b{font-size:15px}}
+/* Движение: появление частей секций, только transform и opacity */
+.rise{animation:rise .9s var(--ease) both}
+@keyframes rise{from{transform:translateY(24px)}to{transform:none}}
+.js .pre{opacity:0;transform:translateY(24px)}
+.js .pre.in{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .9s var(--ease)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before{animation:none!important;transition:none!important}.js .pre{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap bar">
+    <a href="#top" aria-label="LAZA"><img class="logo" src="img/logo.png" alt="Laza"></a>
+    <nav>
+      <a href="#catalog" data-i="nav_catalog">Каталог</a>
+      <a href="#tiers" data-i="nav_tiers">Цена за 1 кг</a>
+      <a href="#order" data-i="nav_order">Как заказать</a>
+      <a href="#contacts" data-i="nav_contacts">Контакты</a>
+    </nav>
+    <div class="bar-end">
+      <div class="lang" role="group" aria-label="Язык / Til">
+        <button type="button" id="lang-ru" data-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" id="lang-uz" data-lang="uz" aria-pressed="false">UZ</button>
+      </div>
+      <a class="btn sm" href="https://t.me/laza_sales_bot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.6c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.3l-4.8-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3Z"/></svg><span data-i="btn_order_short">Заказать</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <h1 class="rise" data-i="hero_title">Мороженое и сулугуни оптом</h1>
+    <div class="hero-row">
+      <div class="hero-text rise" style="animation-delay:.12s">
+        <p class="lead" data-i="hero_lead">Сублимированное мороженое Laza в 11 вкусах и хрустящий сулугуни. Пять фасовок, от 20 г до 1 кг. Производим в Ташкентской области и продаём магазинам и дистрибьюторам напрямую.</p>
+        <div class="actions">
+          <a class="btn" href="https://t.me/laza_sales_bot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.6c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.3l-4.8-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3Z"/></svg><span data-i="btn_order">Заказать в Telegram</span></a>
+          <a class="btn ghost" href="#catalog" data-i="btn_catalog">Каталог и цены</a>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b class="num" data-i="f1b">24 месяца</b><span data-i="f1s">срок хранения при комнатной температуре</span></div>
+        <div class="fact"><b class="num">0…+25 °C</b><span data-i="f2s">хранение и перевозка без холодильника</span></div>
+        <div class="fact"><b class="num" data-i="f3b">от 10 шт</b><span data-i="f3s">минимальная партия фасовок 20–100 г, на каждый вкус</span></div>
+        <div class="fact"><b class="num" data-i="f4b">от 5 кг</b><span data-i="f4s">минимальная партия фасовки 1 кг, на каждый вкус</span></div>
+      </div>
+      <div class="packs rise" style="animation-delay:.2s">
+        <figure><img src="img/fruit_100g.jpg" alt="Мороженое Laza «Фруктовый микс», 100 г"><figcaption><span data-i="hc1">Фруктовый микс, 100 г</span><b class="num" data-i="hc1p">40 000 сум</b></figcaption></figure>
+        <figure><img src="img/plstraw_1kg.jpg" alt="Мороженое Laza «Клубника», 1 кг"></figure>
+        <figure><img src="img/sulu_50g.jpg" alt="Сулугуни сублимированный, 50 г"></figure>
+      </div>
+    </div>
+  </div>
+
+
+  <section id="catalog">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-i="cat_title">Каталог и цены</h2>
+        <div class="filter" role="group" aria-label="Фасовка" id="filter"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="note" data-i="cat_note">Прайс от 14.10.2026. Цены за 1 упаковку, в сумах, без НДС 12%. Доставку, оплату и сроки менеджер уточнит после заказа.</p>
+    </div>
+  </section>
+
+  <section id="tiers">
+    <div class="wrap tiers">
+      <div>
+        <h2 data-i="tiers_title">Цена за 1&nbsp;кг мороженого</h2>
+        <p class="lead2" data-i="tiers_lead">Чем больше заказ, тем ниже цена. Считается общий вес всех пакетов 1 кг в заказе, все вкусы вместе. Сулугуни 1 кг в ступени не входит, у него одна цена: 280 000 сум.</p>
+      </div>
+      <div style="display:grid;gap:16px">
+        <div class="tier-table">
+          <div class="tier-row"><div class="w" data-i="t1">от 5 кг<small>минимальный заказ</small></div><b class="num">300 000</b></div>
+          <div class="tier-row"><div class="w" data-i="t2">от 25 кг<small>до 99 кг</small></div><b class="num">275 000</b></div>
+          <div class="tier-row best"><div class="w" data-i="t3">от 100 кг<small>самая низкая цена</small></div><b class="num">250 000</b></div>
+        </div>
+        <div class="calc">
+          <label for="kg" data-i="calc_label">Сколько килограммов мороженого 1 кг в заказе?</label>
+          <div class="row"><input id="kg" type="range" min="5" max="150" step="1" value="30"><output id="kg-out" class="num" for="kg">30 кг</output></div>
+          <div class="res">
+            <div><span data-i="calc_per">Цена за 1 кг</span><b class="num" id="per">275 000</b></div>
+            <div><span data-i="calc_sum">Сумма без НДС</span><b class="num" id="sum">8 250 000</b></div>
+          </div>
+          <p class="hint" id="hint"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap">
+      <div class="head"><h2 data-i="ord_title">Как заказать в боте</h2></div>
+      <ol class="steps">
+        <li class="step"><b data-i="s1b">Откройте бота</b><p data-i="s1p">Нажмите «Заказать в Telegram» и выберите язык: русский или узбекский.</p></li>
+        <li class="step"><b data-i="s2b">Выберите фасовку и вкус</b><p data-i="s2p">Бот покажет фото каждой пачки, цену и минимальную партию.</p></li>
+        <li class="step"><b data-i="s3b">Укажите количество</b><p data-i="s3p">Корзина сама посчитает сумму и подскажет следующую ступень цены за 1 кг.</p></li>
+        <li class="step"><b data-i="s4b">Подтвердите заказ</b><p data-i="s4p">Менеджер свяжется с вами, уточнит доставку и оплату. Статус заказа приходит в бот.</p></li>
+      </ol>
+      <p class="note" data-i="ord_note">В боте можно просто написать вопрос своими словами. ИИ-помощник ответит про цены, вкусы и минимальную партию, а при необходимости позовёт менеджера.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2 data-i="ab_title">Хрустит и не тает</h2>
+        <ul>
+          <li data-i="ab1">Натуральный состав — без консервантов, красителей и добавок.</li>
+          <li data-i="ab2">Сублимационная сушка убирает воду и сохраняет вкус, цвет и витамины.</li>
+          <li data-i="ab3">Срок хранения 24 месяца при комнатной температуре.</li>
+          <li data-i="ab4">Можно есть как снек, брать в дорогу и дарить.</li>
+        </ul>
+      </div>
+      <div class="pics" aria-hidden="true">
+        <img src="img/mix4_30g.jpg" alt="">
+        <img src="img/pist_20g.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <h2 data-i="ct_title">Станьте партнёром LAZA</h2>
+          <p data-i="ct_lead">Закажите в боте или свяжитесь с отделом продаж. Ответим на вопросы и подберём ассортимент для вашей точки.</p>
+          <a class="btn" href="https://t.me/laza_sales_bot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.6c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.3l-4.8-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3Z"/></svg><span data-i="btn_order">Заказать в Telegram</span></a>
+        </div>
+        <dl>
+          <div><dt>Telegram / WhatsApp</dt><dd class="num">+998 95 079-90-71</dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://instagram.com/laza.uzbekistan" target="_blank" rel="noopener">@laza.uzbekistan</a></dd></div>
+          <div><dt data-i="ct_addr">Адрес</dt><dd data-i="ct_addr_v">Ташкентская область, Кибрайский район, ул. Захириддин Мухаммад Бобур, 9</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span data-i="ft_company">ООО «SUB-PROFI», Узбекистан</span>
+  <span data-i="ft_price">Цены действуют с 14.10.2026, без НДС 12%</span>
+</footer>
+
+<script>
+(function(){
+  const PACKS={ "20g":{ru:"20 г",uz:"20 g",c:"var(--p20)"}, "30g":{ru:"30 г",uz:"30 g",c:"var(--p30)"},
+    "100g":{ru:"100 г",uz:"100 g",c:"var(--p100)"}, "50g":{ru:"50 г",uz:"50 g",c:"var(--p50)"}, "1kg":{ru:"1 кг",uz:"1 kg",c:"var(--p1kg)"} };
+  const ORDER=["1kg","100g","50g","30g","20g"];
+  const P=[
+    {id:"fruit",t:"#E8738F",ru:"Фруктовый микс",uz:"Mevali miks",dru:"апельсин, киви, вишня, клубника, малина",duz:"apelsin, kivi, olcha, qulupnay, malina",packs:{"1kg":300000,"100g":40000,"30g":15000,"20g":10000}},
+    {id:"creme",t:"#F08A1C",ru:"Крем-брюле",uz:"Krem-bryule",packs:{"1kg":300000,"100g":40000,"30g":15000,"20g":10000}},
+    {id:"mix4",t:"#BFE0F2",ru:"Микс (4 вкуса)",uz:"Miks (4 ta'm)",packs:{"1kg":300000,"100g":40000,"30g":15000,"20g":10000}},
+    {id:"pist",t:"#8DB43C",ru:"Фисташки",uz:"Pista",packs:{"1kg":300000,"100g":40000,"30g":15000,"20g":10000}},
+    {id:"forest",t:"#2747B8",ru:"Лесные ягоды",uz:"O'rmon mevalari",packs:{"1kg":300000,"100g":40000}},
+    {id:"snick",t:"#6B2A1E",ru:"Сникерс",uz:"Snickers",packs:{"1kg":300000,"100g":40000}},
+    {id:"mm",t:"#1F4FA8",ru:"M&M",uz:"M&M",packs:{"1kg":300000,"100g":40000}},
+    {id:"plomb",t:"#E4E0D6",ru:"Пломбир",uz:"Plombir",packs:{"1kg":300000}},
+    {id:"plchoc",t:"#4A2A20",ru:"Шоколад",uz:"Shokolad",packs:{"1kg":300000}},
+    {id:"plstraw",t:"#F2A3B3",ru:"Клубника",uz:"Qulupnay",packs:{"1kg":300000}},
+    {id:"plban",t:"#F5D33B",ru:"Банан",uz:"Banan",packs:{"1kg":300000}},
+    {id:"sulu",t:"#1A1A1A",cheese:true,ru:"Сулугуни сублимированный",uz:"Sublimatsiyalangan suluguni",dru:"хрустящие палочки из натурального сыра",duz:"tabiiy pishloqdan qarsildoq tayoqchalar",packs:{"50g":16000,"1kg":280000}}
+  ];
+  const T={
+    ru:{ice:"Мороженое",all:"Все",perPack:"за 1\u00a0шт",perKg:"за 1\u00a0кг",minPcs:"от 10 шт",minKg:"от 5 кг",order:"Заказать в боте",
+        tierNote:"до 250 000 при заказе от 100 кг",kg:"кг",sum:"сум",
+        hintNext:(kg,p)=>`Добавьте ещё ${kg} кг — цена станет ${p} сум за 1 кг.`,hintBest:"Это самая низкая цена за 1 кг."},
+    uz:{ice:"Muzqaymoq",all:"Barchasi",perPack:"1\u00a0dona uchun",perKg:"1\u00a0kg uchun",minPcs:"kamida 10 dona",minKg:"kamida 5 kg",order:"Botda buyurtma berish",
+        tierNote:"100 kg dan buyurtmada 250 000 gacha",kg:"kg",sum:"so'm",
+        hintNext:(kg,p)=>`Yana ${kg} kg qo'shing — narx 1 kg uchun ${p} so'm bo'ladi.`,hintBest:"Bu 1 kg uchun eng past narx."}
+  };
+  const I={
+    uz:{nav_catalog:"Katalog",nav_tiers:"1 kg narxi",nav_order:"Qanday buyurtma berish",nav_contacts:"Kontaktlar",
+      btn_order_short:"Buyurtma",btn_order:"Telegramda buyurtma berish",btn_catalog:"Katalog va narxlar",
+      hero_title:"Ulgurji muzqaymoq va suluguni",
+      hero_lead:"11 ta'mdagi Laza sublimatsiyalangan muzqaymog'i va qarsildoq suluguni. Besh xil qadoq, 20 g dan 1 kg gacha. Toshkent viloyatida ishlab chiqaramiz va do'konlar hamda distribyutorlarga to'g'ridan-to'g'ri sotamiz.",
+      f1b:"24 oy",f1s:"xona haroratida saqlash muddati",f2s:"muzlatgichsiz saqlash va tashish",
+      f3b:"kamida 10 dona",f3s:"20–100 g qadoqlar uchun minimal partiya, har bir ta'mdan",
+      f4b:"kamida 5 kg",f4s:"1 kg qadoq uchun minimal partiya, har bir ta'mdan",
+      cat_title:"Katalog va narxlar",
+      cat_note:"14.10.2026 dagi narxlar. Narxlar 1 qadoq uchun, so'mda, QQS 12% siz. Yetkazib berish, to'lov va muddatlarni menejer buyurtmadan keyin aniqlashtiradi.",
+      tiers_title:"Muzqaymoq 1\u00a0kg narxi",
+      tiers_lead:"Buyurtma qancha katta bo'lsa, narx shuncha past. Buyurtmadagi barcha 1 kg qadoqlarning umumiy vazni hisoblanadi, barcha ta'mlar birga. Suluguni 1 kg bunga kirmaydi — uning narxi bitta, 280 000 so'm.",
+      t1:"5 kg dan<small>minimal buyurtma</small>",t2:"25 kg dan<small>99 kg gacha</small>",t3:"100 kg dan<small>eng past narx</small>",
+      calc_label:"Buyurtmada 1 kg qadoqdagi muzqaymoq necha kilogramm?",calc_per:"1 kg narxi",calc_sum:"Summa, QQSsiz",
+      ord_title:"Botda qanday buyurtma berish",
+      s1b:"Botni oching",s1p:"«Telegramda buyurtma berish» tugmasini bosing va tilni tanlang: rus yoki o'zbek.",
+      s2b:"Qadoq va ta'mni tanlang",s2p:"Bot har bir qadoqning rasmi, narxi va minimal partiyasini ko'rsatadi.",
+      s3b:"Sonini yozing",s3p:"Savat summani o'zi hisoblaydi va 1 kg narxining keyingi pog'onasini aytadi.",
+      s4b:"Buyurtmani tasdiqlang",s4p:"Menejer siz bilan bog'lanib, yetkazib berish va to'lovni aniqlashtiradi. Buyurtma holati botga keladi.",
+      ord_note:"Botga savolingizni o'z so'zlaringiz bilan yozishingiz mumkin — sun'iy intellekt yordamchisi narxlar, ta'mlar va minimal partiya haqida javob beradi, kerak bo'lsa menejerni chaqiradi.",
+      ab_title:"Qarsillaydi va erimaydi",
+      ab1:"Tabiiy tarkib — konservant, bo'yoq va qo'shimchalarsiz.",ab2:"Sublimatsion quritish suvni olib tashlaydi, ta'm, rang va vitaminlarni saqlaydi.",
+      ab3:"Xona haroratida saqlash muddati — 24 oy.",ab4:"Snek sifatida yeyish, yo'lga olish va sovg'a qilish mumkin.",
+      ct_title:"LAZA hamkori bo'ling",ct_lead:"Botda buyurtma bering yoki savdo bo'limi bilan bog'laning — savollarga javob beramiz va do'koningiz uchun assortiment tanlaymiz.",
+      ct_addr:"Manzil",ct_addr_v:"Toshkent viloyati, Qibray tumani, Zahiriddin Muhammad Bobur ko'chasi, 9",
+      ft_company:"«SUB-PROFI» MChJ, O'zbekiston",hc1:"Mevali miks, 100 g",hc1p:"40 000 so'm",swipe:"Kartochkalarni yon tomonga suring →",ft_price:"Narxlar 14.10.2026 dan amal qiladi, QQS 12% siz"}
+  };
+  const RU={}; document.querySelectorAll("[data-i]").forEach(el=>{RU[el.dataset.i]=el.hasAttribute("data-html")||el.querySelector("small,em")?el.innerHTML:el.textContent});
+  I.ru=RU;
+
+  let lang="ru", pack="all";
+  const sel={}; // выбранная фасовка в каждой карточке
+  const fmt=n=>n.toLocaleString("ru-RU").replace(/ |,/g," ");
+  const tg="https://t.me/laza_sales_bot";
+
+  function renderFilter(){
+    const f=document.getElementById("filter"); f.innerHTML="";
+    ["all",...ORDER].forEach(k=>{
+      const b=document.createElement("button"); b.type="button"; b.className="chip"; b.id="f-"+k;
+      b.setAttribute("aria-pressed",String(pack===k));
+      if(k==="all") b.textContent=T[lang].all; else { b.style.setProperty("--c",PACKS[k].c); b.innerHTML=`<i></i>${PACKS[k][lang]}`; }
+      b.onclick=()=>{pack=k; renderFilter(); renderGrid();};
+      f.appendChild(b);
+    });
+  }
+  function renderGrid(){
+    const g=document.getElementById("grid"); g.innerHTML="";
+    P.filter(p=>pack==="all"||p.packs[pack]).forEach(p=>{
+      const keys=ORDER.filter(k=>p.packs[k]);
+      let cur = pack!=="all" ? pack : (sel[p.id] && p.packs[sel[p.id]] ? sel[p.id] : (keys.includes("100g")?"100g":keys[0]));
+      const card=document.createElement("article"); card.className="card"; card.style.setProperty("--t",p.t);
+      const name=p[lang], desc=lang==="uz"?p.duz:p.dru;
+      card.innerHTML=`<div class="ph"><img loading="lazy" alt="${name} ${PACKS[cur][lang]}"></div>
+        <div class="body"><h3>${p.cheese?"":(lang==="uz"?"Muzqaymoq «":"Мороженое «")}${name}${p.cheese?"":"»"}</h3>
+        <div class="sizes" role="group"></div><div class="price"></div>${desc?`<p class="desc">${desc}</p>`:""}
+        <a class="btn" href="${tg}" target="_blank" rel="noopener">${T[lang].order}</a></div>`;
+      const img=card.querySelector("img"), sizes=card.querySelector(".sizes"), price=card.querySelector(".price");
+      function show(k){
+        cur=k; sel[p.id]=k;
+        img.src=`img/${p.id}_${k}.jpg`; img.alt=`${name} ${PACKS[k][lang]}`;
+        sizes.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.pack===k)));
+        const tiered = k==="1kg" && !p.cheese;
+        price.innerHTML=`<div><b class="num">${fmt(p.packs[k])}</b> <small>${T[lang].sum} ${k==="1kg"?T[lang].perKg:T[lang].perPack}</small>${tiered?`<br><small>${T[lang].tierNote}</small>`:""}</div><small>${k==="1kg"?T[lang].minKg:T[lang].minPcs}</small>`;
+      }
+      keys.forEach(k=>{
+        const b=document.createElement("button"); b.type="button"; b.className="size"; b.dataset.pack=k;
+        b.id=`s-${p.id}-${k}`; b.style.setProperty("--c",PACKS[k].c); b.textContent=PACKS[k][lang];
+        b.onclick=()=>show(k); sizes.appendChild(b);
+      });
+      show(cur); g.appendChild(card);
+    });
+  }
+  function calc(){
+    const kg=+document.getElementById("kg").value;
+    const per = kg>=100?250000: kg>=25?275000:300000;
+    document.getElementById("kg-out").textContent=`${kg} ${T[lang].kg}`;
+    document.getElementById("per").textContent=fmt(per);
+    document.getElementById("sum").textContent=fmt(per*kg);
+    const h=document.getElementById("hint");
+    h.textContent = kg<25 ? T[lang].hintNext(25-kg,fmt(275000)) : kg<100 ? T[lang].hintNext(100-kg,fmt(250000)) : T[lang].hintBest;
+  }
+  function setLang(l){
+    lang=l; document.documentElement.lang=l==="uz"?"uz":"ru";
+    document.querySelectorAll("[data-i]").forEach(el=>{const v=I[l][el.dataset.i]; if(v==null) return; if(/<[a-z]/.test(v)) el.innerHTML=v; else el.textContent=v;});
+    document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===l)));
+    document.title = l==="uz" ? "LAZA ulgurji" : "LAZA оптом";
+    try{localStorage.setItem("laza-lang",l)}catch(e){}
+    renderFilter(); renderGrid(); calc();
+  }
+  document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
+  document.getElementById("kg").addEventListener("input",calc);
+  let start="ru";
+  try{ if(localStorage.getItem("laza-lang")==="uz") start="uz"; }catch(e){}
+  if(location.hash==="#uz") start="uz";
+  setLang(start);
+  // появление частей секций при прокрутке; без скрипта всё видно сразу
+  if(!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window){
+    document.documentElement.classList.add("js");
+    const els=[...document.querySelectorAll("section h2, section .lead2, .fact, .tier-row, .calc, .step, .about li, .about .pics img, .contact > *, .head .filter")];
+    const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }),{rootMargin:"0px 0px -8% 0px"});
+    els.forEach((el,i)=>{ const r=el.getBoundingClientRect(); if(r.top>innerHeight){ el.classList.add("pre"); el.style.transitionDelay=((i%4)*70)+"ms"; io.observe(el);} });
+    // страховка: при прокрутке показываем всё, что уже на экране, даже если наблюдатель не сработал
+    let tk=false; const sweep=()=>{tk=false; document.querySelectorAll(".pre:not(.in)").forEach(el=>{ if(el.getBoundingClientRect().top<innerHeight) el.classList.add("in"); });};
+    addEventListener("scroll",()=>{ if(!tk){tk=true; requestAnimationFrame(sweep);} },{passive:true}); addEventListener("resize",sweep);
+  }
+})();
+</script>
+
+</body>
+</html>
