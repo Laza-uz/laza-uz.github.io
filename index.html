@@ -208,6 +208,30 @@ footer{padding-block:40px 44px;color:var(--muted);font-size:15px;display:flex;fl
 .card .body{padding:12px 12px 14px;gap:10px}.card h3{font-size:15px;min-height:0}.card .desc{font-size:14px}
 .size{padding:4px 9px;font-size:13px}.price b{font-size:18px}.price small{font-size:13px}.card .btn{font-size:14px;padding:10px 8px;white-space:normal;text-align:center}
 .packs figcaption{left:8px;right:8px;bottom:8px;padding:8px 10px;font-size:13px;flex-wrap:wrap;gap:2px 8px}.packs figcaption b{font-size:15px}}
+
+/* Меньше красного: красный только на логотипе, главных кнопках, слове «оптом» и лучшей цене */
+#tiers{background:var(--surface);color:var(--ink)}
+#tiers h2{color:var(--ink)}
+#tiers .lead2{color:var(--muted)}
+#tiers .tier-row{background:var(--bg);color:var(--ink)}
+#tiers .tier-row .w small{color:var(--muted)}
+#tiers .tier-row.best{background:var(--bg);color:var(--ink);box-shadow:inset 0 0 0 2px var(--red-text)}
+#tiers .tier-row.best b{color:var(--red-text)}
+#tiers .tier-row.best .w small{color:var(--muted)}
+#tiers .calc{background:var(--bg);color:var(--ink)}
+#tiers .calc .res div{background:var(--surface)}
+#tiers .calc .res span{color:var(--muted)}
+#tiers .calc output{color:var(--ink)}
+#contacts{background:var(--surface);color:var(--ink)}
+#contacts .contact h2{color:var(--ink)}
+#contacts .contact p,#contacts .contact dt{color:var(--muted)}
+#contacts .contact dd{color:var(--ink)}
+#contacts .btn{background:var(--red);color:var(--red-ink)}
+.card .btn{background:var(--sunk);color:var(--ink)}
+.card .btn:hover{background:var(--ink);color:var(--bg);filter:none}
+.step:first-child{background:var(--surface);color:var(--ink)}
+.step:first-child p{color:var(--ink)}
+.about li::before{background:var(--muted)}
 /* Движение: появление частей секций, только transform и opacity */
 .rise{animation:rise .9s var(--ease) both}
 @keyframes rise{from{transform:translateY(24px)}to{transform:none}}
