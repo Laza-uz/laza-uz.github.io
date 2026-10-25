@@ -15,7 +15,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Onest:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: студийный светло-серый фон как на карточках товара. Поверхности различаются тоном, без линий. Заголовок первого экрана крупно на всю ширину, под ним текст слева и большая пачка справа. Фасовки — цветные плашки как на фото */
 :root{
@@ -41,7 +41,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 a{color:inherit;text-underline-offset:3px}
 ::selection{background:var(--red);color:var(--red-ink)}
 h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;letter-spacing:-.02em}
-h2{font-size:clamp(28px,3.6vw,44px);font-weight:700;line-height:1.08}
+h2{font-size:clamp(28px,3.6vw,44px);font-weight:600;line-height:1.1}
 h3{font-size:18px;font-weight:700;line-height:1.2}
 p{margin:0}
 .num{font-variant-numeric:tabular-nums}
@@ -69,7 +69,8 @@ nav a:hover{color:var(--ink)}
 
 /* Первый экран */
 .hero{padding-block:48px 24px}
-.hero h1{font-size:clamp(38px,7.4vw,108px);font-weight:800;line-height:.98;letter-spacing:-.035em;max-width:11.5em}
+.hero h1{font-size:clamp(36px,6.4vw,92px);font-weight:600;line-height:1.02;letter-spacing:-.03em;max-width:12em;color:color-mix(in srgb,var(--ink) 88%,var(--red))}
+.hero h1 em{font-style:normal;color:var(--red-text)}
 .hero-row{margin-top:clamp(24px,3vw,40px);display:grid;grid-template-columns:5fr 7fr;grid-template-areas:"text packs" "facts packs";grid-template-rows:auto 1fr;gap:clamp(20px,3vw,32px) clamp(20px,3vw,40px)}
 .hero-text{grid-area:text}.hero-row .packs{grid-area:packs}.hero-row .facts{grid-area:facts;align-self:end}
 .hero .lead{font-size:clamp(17px,1.4vw,18px);max-width:30em}
@@ -239,7 +240,7 @@ footer{padding-block:40px 44px;color:var(--muted);font-size:15px;display:flex;fl
 
 <main id="top">
   <div class="wrap hero">
-    <h1 class="rise" data-i="hero_title">Мороженое и сулугуни оптом</h1>
+    <h1 class="rise" data-i="hero_title">Мороженое и сулугуни <em>оптом</em></h1>
     <div class="hero-row">
       <div class="hero-text rise" style="animation-delay:.12s">
         <p class="lead" data-i="hero_lead">Сублимированное мороженое Laza в 11 вкусах и хрустящий сулугуни. Пять фасовок, от 20 г до 1 кг. Производим в Ташкентской области и продаём магазинам и дистрибьюторам напрямую.</p>
@@ -330,7 +331,7 @@ footer{padding-block:40px 44px;color:var(--muted);font-size:15px;display:flex;fl
     </div>
   </section>
 
-  <section id="contacts" style="padding-bottom:0">
+  <section id="contacts">
     <div class="wrap">
       <div class="contact">
         <div>
@@ -383,7 +384,7 @@ footer{padding-block:40px 44px;color:var(--muted);font-size:15px;display:flex;fl
   const I={
     uz:{nav_catalog:"Katalog",nav_tiers:"1 kg narxi",nav_order:"Qanday buyurtma berish",nav_contacts:"Kontaktlar",
       btn_order_short:"Buyurtma",btn_order:"Telegramda buyurtma berish",btn_catalog:"Katalog va narxlar",
-      hero_title:"Ulgurji muzqaymoq va suluguni",
+      hero_title:"<em>Ulgurji</em> muzqaymoq va suluguni",
       hero_lead:"11 ta'mdagi Laza sublimatsiyalangan muzqaymog'i va qarsildoq suluguni. Besh xil qadoq, 20 g dan 1 kg gacha. Toshkent viloyatida ishlab chiqaramiz va do'konlar hamda distribyutorlarga to'g'ridan-to'g'ri sotamiz.",
       f1b:"24 oy",f1s:"xona haroratida saqlash muddati",f2s:"muzlatgichsiz saqlash va tashish",
       f3b:"kamida 10 dona",f3s:"20–100 g qadoqlar uchun minimal partiya, har bir ta'mdan",
