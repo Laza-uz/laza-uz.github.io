@@ -128,7 +128,8 @@ section{padding-block:clamp(72px,9vw,128px) 0}
 .tier-row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:18px 22px;background:var(--surface);border-radius:var(--r);align-items:baseline}
 .tier-row .w{font-weight:600}
 .tier-row .w small{display:block;font-weight:400;color:var(--muted);font-size:15px}
-.tier-row b{font-family:var(--font-display);font-size:clamp(22px,2vw,24px)}
+.tier-row b{font-family:var(--font-display);font-size:clamp(22px,2vw,24px);text-align:right}
+.vat{display:block;font-family:var(--font-body,inherit);font-size:13px;font-weight:500;opacity:.75;white-space:nowrap}
 .tier-row.best{background:var(--ink);color:var(--bg)}
 .tier-row.best .w small{color:color-mix(in srgb,var(--bg) 78%,transparent)}
 .calc{background:var(--sunk);border-radius:var(--r);padding:22px;display:grid;gap:14px;margin-top:8px}
@@ -137,6 +138,7 @@ section{padding-block:clamp(72px,9vw,128px) 0}
 .calc input[type=range]{flex:1;accent-color:var(--red)}
 .calc output{font-family:var(--font-display);font-weight:700;min-width:5.5em;text-align:right}
 .calc .res{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.calc .res .full{grid-column:1/-1}
 .calc .res div{background:var(--surface);border-radius:12px;padding:12px 14px;min-width:0}
 .calc .res span{display:block;color:var(--muted);font-size:14px}
 .calc .res b{font-family:var(--font-display);font-size:24px}
@@ -332,7 +334,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
         <div class="filter" role="group" aria-label="Фасовка" id="filter"></div>
       </div>
       <div class="grid" id="grid"></div>
-      <p class="note" data-i="cat_note">Прайс от 14.10.2026. Цены за 1 упаковку, в сумах, без НДС 12%. Доставку, оплату и сроки менеджер уточнит после заказа.</p>
+      <p class="note" data-i="cat_note">Прайс от 14.10.2026. Цены за 1 упаковку, в сумах: крупно — без НДС, ниже — с НДС 12%. Бесплатный пробный образец — по запросу в боте. Доставку, оплату и сроки менеджер уточнит после заказа.</p>
     </div>
   </section>
 
@@ -344,9 +346,9 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
       </div>
       <div style="display:grid;gap:16px">
         <div class="tier-table">
-          <div class="tier-row"><div class="w" data-i="t1">от 5 кг<small>минимальный заказ</small></div><b class="num">300 000</b></div>
-          <div class="tier-row"><div class="w" data-i="t2">от 25 кг<small>до 99 кг</small></div><b class="num">275 000</b></div>
-          <div class="tier-row best"><div class="w" data-i="t3">от 100 кг<small>самая низкая цена</small></div><b class="num">250 000</b></div>
+          <div class="tier-row"><div class="w" data-i="t1">от 5 кг<small>минимальный заказ</small></div><b class="num">300 000<small class="vat"><span data-i="vat_w">с НДС</span> 336 000</small></b></div>
+          <div class="tier-row"><div class="w" data-i="t2">от 25 кг<small>до 99 кг</small></div><b class="num">275 000<small class="vat"><span data-i="vat_w">с НДС</span> 308 000</small></b></div>
+          <div class="tier-row best"><div class="w" data-i="t3">от 100 кг<small>самая низкая цена</small></div><b class="num">250 000<small class="vat"><span data-i="vat_w">с НДС</span> 280 000</small></b></div>
         </div>
         <div class="calc">
           <label for="kg" data-i="calc_label">Сколько килограммов мороженого 1 кг в заказе?</label>
@@ -354,6 +356,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
           <div class="res">
             <div><span data-i="calc_per">Цена за 1 кг</span><b class="num" id="per">275 000</b></div>
             <div><span data-i="calc_sum">Сумма без НДС</span><b class="num" id="sum">8 250 000</b></div>
+            <div class="full"><span data-i="calc_sumv">Сумма с НДС 12%</span><b class="num" id="sumv">9 240 000</b></div>
           </div>
           <p class="hint" id="hint"></p>
         </div>
@@ -436,10 +439,10 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
   ];
   const T={
     ru:{ice:"Мороженое",all:"Все",perPack:"за 1\u00a0шт",perKg:"за 1\u00a0кг",minPcs:"от 10 шт",minKg:"от 5 кг",order:"Заказать в боте",
-        tierNote:"до 250 000 при заказе от 100 кг",kg:"кг",sum:"сум",
+        tierNote:"до 250 000 при заказе от 100 кг",vatw:"с НДС",kg:"кг",sum:"сум",
         hintNext:(kg,p)=>`Добавьте ещё ${kg} кг — цена станет ${p} сум за 1 кг.`,hintBest:"Это самая низкая цена за 1 кг."},
     uz:{ice:"Muzqaymoq",all:"Barchasi",perPack:"1\u00a0dona uchun",perKg:"1\u00a0kg uchun",minPcs:"kamida 10 dona",minKg:"kamida 5 kg",order:"Botda buyurtma berish",
-        tierNote:"100 kg dan buyurtmada 250 000 gacha",kg:"kg",sum:"so'm",
+        tierNote:"100 kg dan buyurtmada 250 000 gacha",vatw:"QQS bilan",kg:"kg",sum:"so'm",
         hintNext:(kg,p)=>`Yana ${kg} kg qo'shing — narx 1 kg uchun ${p} so'm bo'ladi.`,hintBest:"Bu 1 kg uchun eng past narx."}
   };
   const I={
@@ -451,11 +454,11 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
       f3b:"kamida 10 dona",f3s:"20–100 g qadoqlar uchun minimal partiya, har bir ta'mdan",
       f4b:"kamida 5 kg",f4s:"1 kg qadoq uchun minimal partiya, har bir ta'mdan",
       cat_title:"Katalog va narxlar",
-      cat_note:"14.10.2026 dagi narxlar. Narxlar 1 qadoq uchun, so'mda, QQS 12% siz. Yetkazib berish, to'lov va muddatlarni menejer buyurtmadan keyin aniqlashtiradi.",
+      cat_note:"14.10.2026 dagi narxlar. Narxlar 1 qadoq uchun, so'mda: katta raqam — QQSsiz, ostida — QQS 12% bilan. Bepul sinov namunasi — botda so'rov bo'yicha. Yetkazib berish, to'lov va muddatlarni menejer buyurtmadan keyin aniqlashtiradi.",
       tiers_title:"Muzqaymoq 1\u00a0kg narxi",
       tiers_lead:"Buyurtma qancha katta bo'lsa, narx shuncha past. Buyurtmadagi barcha 1 kg qadoqlarning umumiy vazni hisoblanadi, barcha ta'mlar birga. Suluguni 1 kg bunga kirmaydi — uning narxi bitta, 280 000 so'm.",
       t1:"5 kg dan<small>minimal buyurtma</small>",t2:"25 kg dan<small>99 kg gacha</small>",t3:"100 kg dan<small>eng past narx</small>",
-      calc_label:"Buyurtmada 1 kg qadoqdagi muzqaymoq necha kilogramm?",calc_per:"1 kg narxi",calc_sum:"Summa, QQSsiz",
+      calc_label:"Buyurtmada 1 kg qadoqdagi muzqaymoq necha kilogramm?",calc_per:"1 kg narxi",calc_sum:"Summa, QQSsiz",calc_sumv:"Summa, QQS 12% bilan",vat_w:"QQS bilan",
       ord_title:"Botda qanday buyurtma berish",
       s1b:"Botni oching",s1p:"«Telegramda buyurtma berish» tugmasini bosing va tilni tanlang: rus yoki o'zbek.",
       s2b:"Qadoq va ta'mni tanlang",s2p:"Bot har bir qadoqning rasmi, narxi va minimal partiyasini ko'rsatadi.",
@@ -504,7 +507,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
         img.src=`img/${p.id}_${k}.jpg`; img.alt=`${name} ${PACKS[k][lang]}`;
         sizes.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.pack===k)));
         const tiered = k==="1kg" && !p.cheese;
-        price.innerHTML=`<div><b class="num">${fmt(p.packs[k])}</b> <small>${T[lang].sum} ${k==="1kg"?T[lang].perKg:T[lang].perPack}</small>${tiered?`<br><small>${T[lang].tierNote}</small>`:""}</div><small>${k==="1kg"?T[lang].minKg:T[lang].minPcs}</small>`;
+        price.innerHTML=`<div><b class="num">${fmt(p.packs[k])}</b> <small>${T[lang].sum} ${k==="1kg"?T[lang].perKg:T[lang].perPack}</small><br><small>${T[lang].vatw} ${fmt(Math.round(p.packs[k]*1.12))}</small>${tiered?`<br><small>${T[lang].tierNote}</small>`:""}</div><small>${k==="1kg"?T[lang].minKg:T[lang].minPcs}</small>`;
       }
       keys.forEach(k=>{
         const b=document.createElement("button"); b.type="button"; b.className="size"; b.dataset.pack=k;
@@ -520,6 +523,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
     document.getElementById("kg-out").textContent=`${kg} ${T[lang].kg}`;
     document.getElementById("per").textContent=fmt(per);
     document.getElementById("sum").textContent=fmt(per*kg);
+    document.getElementById("sumv").textContent=fmt(Math.round(per*kg*1.12));
     const h=document.getElementById("hint");
     h.textContent = kg<25 ? T[lang].hintNext(25-kg,fmt(275000)) : kg<100 ? T[lang].hintNext(100-kg,fmt(250000)) : T[lang].hintBest;
   }
