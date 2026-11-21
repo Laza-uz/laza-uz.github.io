@@ -3,8 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>LAZA оптом</title>
+<title>Сублимированное мороженое и сулугуни оптом в Ташкенте — LAZA</title>
 <meta name="description" content="Сублимированное мороженое Laza (11 вкусов) и хрустящий сулугуни оптом от производителя из Ташкентской области. Каталог, оптовые цены, заказ в Telegram-боте @laza_sales_bot.">
+<link rel="canonical" href="https://laza-uz.github.io/">
+<link rel="alternate" hreflang="ru" href="https://laza-uz.github.io/">
+<link rel="alternate" hreflang="uz" href="https://laza-uz.github.io/?lang=uz">
+<link rel="alternate" hreflang="x-default" href="https://laza-uz.github.io/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"LAZA","legalName":"ООО «SUB-PROFI»","url":"https://laza-uz.github.io/","logo":"https://laza-uz.github.io/img/logo.png","description":"Производитель сублимированного мороженого Laza и сублимированного сулугуни. Оптовые поставки по Узбекистану.","telephone":"+998950799071","address":{"@type":"PostalAddress","streetAddress":"ул. Захириддин Мухаммад Бобур, 9","addressLocality":"Кибрайский район","addressRegion":"Ташкентская область","addressCountry":"UZ"},"sameAs":["https://instagram.com/laza.uzbekistan","https://t.me/laza_sales_bot"],"knowsLanguage":["ru","uz"]}
+</script>
 <meta property="og:title" content="LAZA оптом — мороженое и сулугуни">
 <meta property="og:description" content="11 вкусов сублимированного мороженого и хрустящий сулугуни. Оптовые цены, заказ в Telegram.">
 <meta property="og:image" content="https://laza-uz.github.io/img/fruit_100g.jpg">
@@ -527,7 +534,11 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
     lang=l; document.documentElement.lang=l==="uz"?"uz":"ru";
     document.querySelectorAll("[data-i]").forEach(el=>{const v=I[l][el.dataset.i]; if(v==null) return; if(/<[a-z]/.test(v)) el.innerHTML=v; else el.textContent=v;});
     document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===l)));
-    document.title = l==="uz" ? "LAZA ulgurji" : "LAZA оптом";
+    document.title = l==="uz" ? "Sublimatsiyalangan muzqaymoq va suluguni ulgurji, Toshkent — LAZA" : "Сублимированное мороженое и сулугуни оптом в Ташкенте — LAZA";
+    const md=document.querySelector('meta[name="description"]');
+    if(md) md.setAttribute("content", l==="uz"
+      ? "Laza sublimatsiyalangan muzqaymoqi (11 ta'm) va qarsildoq suluguni Toshkent viloyatidagi ishlab chiqaruvchidan ulgurji. Katalog, ulgurji narxlar, @laza_sales_bot Telegram-botida buyurtma."
+      : "Сублимированное мороженое Laza (11 вкусов) и хрустящий сулугуни оптом от производителя из Ташкентской области. Каталог, оптовые цены, заказ в Telegram-боте @laza_sales_bot.");
     try{localStorage.setItem("laza-lang",l)}catch(e){}
     renderFilter(); renderGrid(); calc();
   }
@@ -536,6 +547,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
   let start="ru";
   try{ if(localStorage.getItem("laza-lang")==="uz") start="uz"; }catch(e){}
   if(location.hash==="#uz") start="uz";
+  try{ const q=new URLSearchParams(location.search).get("lang"); if(q==="uz"||q==="ru") start=q; }catch(e){}
   setLang(start);
   // появление частей секций при прокрутке; без скрипта всё видно сразу
   if(!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window){

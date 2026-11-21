@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://laza-uz.github.io/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://laza-uz.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://laza-uz.github.io/?lang=uz"/>
+  </url>
+  <url>
+    <loc>https://laza-uz.github.io/?lang=uz</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://laza-uz.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://laza-uz.github.io/?lang=uz"/>
+  </url>
+</urlset>
