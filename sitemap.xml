@@ -12,4 +12,10 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://laza-uz.github.io/"/>
     <xhtml:link rel="alternate" hreflang="uz" href="https://laza-uz.github.io/?lang=uz"/>
   </url>
+  <url>
+    <loc>https://laza-uz.github.io/suluguni.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://laza-uz.github.io/suluguni.html"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://laza-uz.github.io/suluguni.html?lang=uz"/>
+  </url>
 </urlset>
