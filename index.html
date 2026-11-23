@@ -277,6 +277,9 @@ h2{font-weight:500}
 .js .pre{opacity:0;transform:translateY(24px)}
 .js .pre.in{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .9s var(--ease)}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before{animation:none!important;transition:none!important}.js .pre{opacity:1;transform:none}}
+.card .more{display:inline-block;margin:0 0 10px;font-size:14px;color:inherit;opacity:.75}
+.seo-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding-block:20px 0;font-size:14px}
+.seo-links a{color:inherit;opacity:.75}
 </style>
 <script>
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset identify alias set_config get_property".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -418,6 +421,11 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
   </section>
 </main>
 
+<nav class="wrap seo-links" aria-label="Страницы">
+  <a href="morozhenoe-optom.html" data-i="sl_ice">Сублимированное мороженое оптом</a>
+  <a href="morozhenoe-1kg.html" data-i="sl_1kg">Мороженое 1 кг оптом</a>
+  <a href="suluguni.html" data-i="sl_sulu">Сулугуни сублимированный оптом</a>
+</nav>
 <footer class="wrap">
   <span data-i="ft_company">ООО «SUB-PROFI», Узбекистан</span>
   <span data-i="ft_price">Цены действуют с 14.10.2026, без НДС 12%</span>
@@ -475,7 +483,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
       ab3:"Xona haroratida saqlash muddati — 24 oy.",ab4:"Snek sifatida yeyish, yo'lga olish va sovg'a qilish mumkin.",
       ct_title:"LAZA hamkori bo'ling",ct_lead:"Botda buyurtma bering yoki savdo bo'limi bilan bog'laning — savollarga javob beramiz va do'koningiz uchun assortiment tanlaymiz.",
       ct_addr:"Manzil",ct_addr_v:"Toshkent viloyati, Qibray tumani, Zahiriddin Muhammad Bobur ko'chasi, 9",
-      ft_company:"«SUB-PROFI» MChJ, O'zbekiston",hc1:"Mevali miks, 100 g",hc1p:"40 000 so'm",swipe:"Kartochkalarni yon tomonga suring →",ft_price:"Narxlar 14.10.2026 dan amal qiladi, QQS 12% siz"}
+      sl_ice:"Sublimatsiyalangan muzqaymoq ulgurji",sl_1kg:"Muzqaymoq 1 kg ulgurji",sl_sulu:"Sublimatsiyalangan suluguni ulgurji",ft_company:"«SUB-PROFI» MChJ, O'zbekiston",hc1:"Mevali miks, 100 g",hc1p:"40 000 so'm",swipe:"Kartochkalarni yon tomonga suring →",ft_price:"Narxlar 14.10.2026 dan amal qiladi, QQS 12% siz"}
   };
   const RU={}; document.querySelectorAll("[data-i]").forEach(el=>{RU[el.dataset.i]=el.hasAttribute("data-html")||el.querySelector("small,em")?el.innerHTML:el.textContent});
   I.ru=RU;
@@ -504,7 +512,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
       const name=p[lang], desc=lang==="uz"?p.duz:p.dru;
       card.innerHTML=`<div class="ph"><img loading="lazy" alt="${name} ${PACKS[cur][lang]}"></div>
         <div class="body"><h3>${p.cheese?"":(lang==="uz"?"Muzqaymoq «":"Мороженое «")}${name}${p.cheese?"":"»"}</h3>
-        <div class="sizes" role="group"></div><div class="price"></div>${desc?`<p class="desc">${desc}</p>`:""}
+        <div class="sizes" role="group"></div><div class="price"></div>${desc?`<p class="desc">${desc}</p>`:""}<a class="more" href="${p.cheese?"suluguni.html":"morozhenoe-optom.html"}${lang==="uz"?"?lang=uz":""}">${lang==="uz"?"Batafsil →":"Подробнее →"}</a>
         <a class="btn" href="${tg}" target="_blank" rel="noopener">${T[lang].order}</a></div>`;
       const img=card.querySelector("img"), sizes=card.querySelector(".sizes"), price=card.querySelector(".price");
       function show(k){

@@ -284,7 +284,6 @@ posthog.init("phc_w6WgjhHY98tpkN7Zh9XVgrRXi8QgxXFedxyqyBpJRxJf",{api_host:"https
 // нажатия «Заказать в боте»: какая кнопка и какой товар
 document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="t.me/laza_sales_bot"]');if(!a)return;var c=a.closest(".card"),sec=a.closest("section,header,footer");posthog.capture("order_click",{place:c?"catalog":(sec&&(sec.id||sec.tagName.toLowerCase()))||"page",product:c&&c.querySelector("h3")?c.querySelector("h3").textContent.trim():null,pack:c&&c.querySelector('.size[aria-pressed="true"]')?c.querySelector('.size[aria-pressed="true"]').textContent.trim():null,lang:document.documentElement.lang});},true);
 </script>
-</head>
 <style>
 .prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:8px}
 .price-card{display:flex;gap:16px;align-items:center;padding:16px;border-radius:24px;background:var(--surface,rgba(127,127,127,.08))}
@@ -383,6 +382,11 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
     </div>
   </section>
 
+  <section id="related">
+    <div class="wrap">
+      <p class="note"><span data-i="related">Другие страницы</span>: <a href="suluguni.html" data-i="rel_sulu">Сулугуни оптом</a> · <a href="morozhenoe-optom.html" data-i="rel_ice">Сублимированное мороженое оптом</a> · <a href="morozhenoe-1kg.html" data-i="rel_1kg">Мороженое 1 кг оптом</a></p>
+    </div>
+  </section>
   <section id="contacts">
     <div class="wrap">
       <div class="contact">
@@ -428,6 +432,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
     s2b:"Sulugunini tanlang",s2p:"50 g yoki 1 kg qadoq va miqdorini.",s3b:"Buyurtmani tasdiqlang",s3p:"Menejer siz bilan bog'lanib, yetkazib berish va to'lovni aniqlaydi.",
     ct_title:"LAZA hamkori bo'ling",ct_lead:"Botda buyurtma bering yoki savdo bo'limi bilan bog'laning — savollarga javob beramiz va do'koningiz uchun assortiment tanlaymiz.",
     ct_addr:"Manzil",ct_addr_v:"Toshkent viloyati, Qibray tumani, Zahiriddin Muhammad Bobur ko'chasi, 9",
+    related:"Boshqa sahifalar",rel_sulu:"Suluguni ulgurji",rel_ice:"Sublimatsiyalangan muzqaymoq ulgurji",rel_1kg:"Muzqaymoq 1 kg ulgurji",
     ft_company:"«SUB-PROFI» MChJ, O'zbekiston",ft_price:"Narxlar 14.10.2026 dan amal qiladi, QQS 12% siz"
   };
   const RU={};
