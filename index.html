@@ -277,7 +277,6 @@ h2{font-weight:500}
 .js .pre{opacity:0;transform:translateY(24px)}
 .js .pre.in{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .9s var(--ease)}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before{animation:none!important;transition:none!important}.js .pre{opacity:1;transform:none}}
-.card .more{display:inline-block;margin:0 0 10px;font-size:14px;color:inherit;opacity:.75}
 .seo-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding-block:20px 0;font-size:14px}
 .seo-links a{color:inherit;opacity:.75}
 </style>
@@ -512,7 +511,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
       const name=p[lang], desc=lang==="uz"?p.duz:p.dru;
       card.innerHTML=`<div class="ph"><img loading="lazy" alt="${name} ${PACKS[cur][lang]}"></div>
         <div class="body"><h3>${p.cheese?"":(lang==="uz"?"Muzqaymoq «":"Мороженое «")}${name}${p.cheese?"":"»"}</h3>
-        <div class="sizes" role="group"></div><div class="price"></div>${desc?`<p class="desc">${desc}</p>`:""}<a class="more" href="${p.cheese?"suluguni.html":"morozhenoe-optom.html"}${lang==="uz"?"?lang=uz":""}">${lang==="uz"?"Batafsil →":"Подробнее →"}</a>
+        <div class="sizes" role="group"></div><div class="price"></div>${desc?`<p class="desc">${desc}</p>`:""}
         <a class="btn" href="${tg}" target="_blank" rel="noopener">${T[lang].order}</a></div>`;
       const img=card.querySelector("img"), sizes=card.querySelector(".sizes"), price=card.querySelector(".price");
       function show(k){
